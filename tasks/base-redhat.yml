@@ -1,2 +1,31 @@
 ---
 # tasks file for iac-ansible-docker
+- name: Remover versões antigas do Docker
+  yum: name={{ item }} state=absent
+  with_items:
+          - docker
+          - docker-client
+          - docker-client-latest
+          - docker-common
+          - docker-engine
+          - docker-engine-selinux
+          - docker-latest
+          - docker-latest-logrotate
+          - docker-logrotate
+          - docker-selinux
+
+- name: Instalar Dependencias
+  yum: name={{ item }} state=latest
+  with_items:
+          - yum-utils
+          - device-mapper-persistent-data
+          - lvm2
+          - curl
+- name: Adicionando o repositorio do Docker CE
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: Instalando Docker
+  yum: name=docker-ce state=latest
+...
