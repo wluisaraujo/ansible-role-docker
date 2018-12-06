@@ -23,7 +23,7 @@
     - software-properties-common
 
 - apt_key: 
-    url: "https://download.docker.com/linux/ubuntu/gpg"
+    repo: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
 
 - apt_repository:
