@@ -6,6 +6,8 @@
           - docker
           - docker-engine
           - docker.io
+  when: 
+    - ansible_distribution == "CentOS" 
 
 - name: Instalar Dependencias
   apt: name={{ item }} update_cache=yes state=latest
