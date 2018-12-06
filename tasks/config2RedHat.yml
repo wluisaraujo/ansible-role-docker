@@ -27,11 +27,14 @@
     - device-mapper-persistent-data
     - lvm2
     - curl
+    
 - name: Adicionando o repositorio do Docker CE
   get_url:
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
-
+    force: yes
+    validate_certs: no
+    
 - name: Instalando Docker
   yum: 
     name: docker-ce 
