@@ -1,10 +1,5 @@
 ---
 # tasks file for iac-ansible-docker
-- name:  Instala o Docker CE (OS Base Debian)
-  import_tasks: base-debian.yml
-  when: (ansible_os_family == "Debian")
-
-- name:  Instala o Docker CE (OS Base RedHat)
-  import_tasks: base-redhat.yml
-  when: (ansible_os_family == "RedHat")
+- name: Instalar Docker no "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"
+  include_tasks: config2{{ ansible_os_family }}.yml
 ...
