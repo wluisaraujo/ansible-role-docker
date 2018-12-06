@@ -11,11 +11,11 @@
   when: 
     - ansible_distribution == "Debian" 
 
-- name: Instalar Dependencias
-  apt: 
+- apt: 
     name: "{{ item }}" 
     update_cache: yes 
-    state: latest
+    state: present
+    force: yes 
   with_items:
     - apt-transport-https
     - ca-certificates
