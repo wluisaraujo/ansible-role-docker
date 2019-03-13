@@ -13,6 +13,9 @@ galaxy_info:
   - name: Debian
     versions:
     - all
+  - name: Fedora
+    versions:
+    - 29  
 
   galaxy_tags:
      - docker
