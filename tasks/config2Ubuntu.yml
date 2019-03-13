@@ -1,0 +1,48 @@
+---
+# tasks file for iac-ansible-docker
+- name: Remover versões antigas do Docker
+  apt: 
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-engine
+    - docker.io
+  when: 
+    - ansible_distribution == "Debian" 
+
+- apt: 
+    name: "{{ item }}" 
+    update_cache: yes 
+    state: present
+    force: yes 
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  when: 
+    - ansible_distribution == "Debian"  
+
+#- apt_key: 
+#    repo: "https://download.docker.com/linux/ubuntu/gpg"
+#    state: present
+
+- shell: "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - 2> /dev/null &> /dev/null"
+  when: 
+    - ansible_distribution == "Debian"
+    
+- apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        state: present
+        update_cache: yes
+        validate_certs: no
+  when: 
+    - ansible_distribution == "Debian"
+    
+#- name: Instalando Docker
+#  apt: 
+#    name: docker-ce 
+#    update_cache: yes 
+#    state: latest
+...
