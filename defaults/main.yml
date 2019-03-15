@@ -1,2 +1,4 @@
 ---
 # defaults file for iac-ansible-docker
+docker_edition: 'ce'
+docker_package: "docker-{{ docker_edition }}"

@@ -4,7 +4,7 @@
   yum: 
     name: "{{ item }}"
     state: absent
-  with_items:
+  loop:
     - docker
     - docker-client
     - docker-client-latest
@@ -22,7 +22,7 @@
   yum: 
     name: "{{ item }}" 
     state: latest
-  with_items:
+  loop:
     - yum-utils
     - device-mapper-persistent-data
     - lvm2
@@ -39,4 +39,6 @@
   yum: 
     name: docker-ce 
     state: latest
+  notify:
+    - Start Docker  
 ...

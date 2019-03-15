@@ -41,4 +41,6 @@
     name: docker-ce 
     update_cache: yes 
     state: latest
+  notify:
+    - Start Docker  
 ...

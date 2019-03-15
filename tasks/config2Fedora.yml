@@ -46,4 +46,6 @@
   dnf: 
     name: docker-ce 
     state: latest
+  notify:
+    - Start Docker  
 ...

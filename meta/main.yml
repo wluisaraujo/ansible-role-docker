@@ -1,7 +1,7 @@
 galaxy_info:
   author: w.luis.araujo
-  description: Install Docker CE
-  company: Personal
+  description: Install Docker for Linux
+  company: LUSAR
   license: license (GPLv3)
 
   min_ansible_version: 2
@@ -19,6 +19,7 @@ galaxy_info:
 
   galaxy_tags:
      - docker
+     - containers
 
   dependencies: []
 

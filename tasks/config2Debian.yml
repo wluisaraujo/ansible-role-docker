@@ -4,7 +4,7 @@
   apt: 
     name: "{{ item }}"
     state: absent
-  with_items:
+  loop:
     - docker
     - docker-engine
     - docker.io
@@ -16,7 +16,7 @@
     update_cache: yes 
     state: present
     force: yes 
-  with_items:
+  loop:
     - apt-transport-https
     - ca-certificates
     - curl
@@ -40,9 +40,9 @@
   when: 
     - ansible_distribution == "Debian"
     
-#- name: Instalando Docker
-#  apt: 
-#    name: docker-ce 
-#    update_cache: yes 
-#    state: latest
+- name: Instalando Docker
+  apt: 
+    name: docker-ce 
+    update_cache: yes 
+    state: latest
 ...
