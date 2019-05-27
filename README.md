@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-docker.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-docker)
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Docker-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac-ansible-docker) [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-docker.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-docker)
+
 ---
 # IaC: with [Ansible](https://www.ansible.com) role to install and configure [Docker](https://www.docker.com/)
 ------------
