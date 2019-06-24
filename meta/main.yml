@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: iac-ansible-docker
   author: w.luis.araujo
   description: Install Docker for Linux
   company: LUSAR | wluisaraujo.github.io
