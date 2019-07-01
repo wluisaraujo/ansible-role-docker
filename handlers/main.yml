@@ -1,5 +1,5 @@
 ---
-# handlers file for iac-ansible-docker
+# handlers file for docker
 
 ## SystemD
 - name: Start {{ service_name }}

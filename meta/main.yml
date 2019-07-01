@@ -1,11 +1,11 @@
 galaxy_info:
-  role_name: iac-ansible-docker
+  role_name: docker
   author: w.luis.araujo
-  description: Install Docker for Linux
+  description: "Infrastructure as Code (IaC) with Ansible role for Install Docker for Linux"
   company: LUSAR | wluisaraujo.github.io
-  license: license (GPLv3)
+  license: "license (GPLv3)"
 
-  min_ansible_version: 2.0
+  min_ansible_version: 2.4
 
   platforms:
   - name: EL
