@@ -10,13 +10,18 @@ galaxy_info:
   platforms:
   - name: EL
     versions:
-    - all
+    - 7
+  - name: Fedora
+    versions:
+    - 30
+    - 29	
   - name: Debian
     versions:
     - all
-  - name: Fedora
+  - name: Ubuntu
     versions:
-    - 29  
+    - bionic
+    - xenial  
 
   galaxy_tags:
      - docker
