@@ -8,15 +8,6 @@
   ignore_errors: yes
   when: ansible_service_mgr == "systemd"
 
-- name: "Stop docker"
-  systemd:
-    state: stopped
-    name: docker.service
-    enabled: yes
-    force: yes
-  ignore_errors: yes
-  when: ansible_service_mgr == "systemd"
-    
 - name: "Restart docker"
   systemd:
     state: restarted
@@ -24,14 +15,6 @@
     force: yes
   ignore_errors: yes
   when: ansible_service_mgr == "systemd"
-
-- name: "Reload docker"
-  systemd:
-    state: reloaded
-    name: docker.service
-    force: yes
-  ignore_errors: yes
-  when: ansible_service_mgr == "systemd"     
 
 ## SystemV
 - name: "Start docker"
@@ -40,22 +23,9 @@
     name: docker
     enabled: yes
   when: ansible_service_mgr == "service"
-
-- name: "Stop docker"
-  service:
-    state: stopped
-    name: docker
-    enabled: yes
-  when: ansible_service_mgr == "service"
     
 - name: "Restart docker"
   service:
     state: restarted
-    name: docker
-  when: ansible_service_mgr == "service"
-
-- name: "Reload docker"
-  service: 
-    state: reloaded
     name: docker
   when: ansible_service_mgr == "service"

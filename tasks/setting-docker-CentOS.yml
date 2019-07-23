@@ -12,8 +12,6 @@
     - docker-latest
     - docker-latest-logrotate
     - docker-logrotate
-    - docker-selinux
-    - docker-engine-selinux
     - docker-engine
   when: ansible_distribution == "CentOS" 
 
@@ -50,5 +48,13 @@
     - docker-ce-cli 
     - containerd.io  
   notify:
-    - Start docker
+    - "Start docker"
+
+- systemd:
+    state: restarted
+    name: docker.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: ansible_service_mgr == "systemd"
 ...
