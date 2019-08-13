@@ -1,6 +1,6 @@
 ---
 # tasks file for docker
-- name: Remover versões antigas do Docker
+- name: "Remover versões antigas do Docker"
   dnf: 
     name: "{{ item }}"
     state: absent
@@ -15,10 +15,9 @@
     - docker-selinux
     - docker-engine-selinux
     - docker-engine
-  when: 
-    - ansible_distribution == "Fedora" 
+  when: ansible_distribution == "Fedora" 
 
-- name: Instalar Dependencias
+- name: "Instalar Dependencias"
   dnf: 
     name: "{{ item }}" 
     state: latest
@@ -32,17 +31,16 @@
     - python-pip
     - python2-docker-tests
     - curl
-  when: 
-    - ansible_distribution == "Fedora"
+  when: ansible_distribution == "Fedora"
     
-- name: Adicionando o repositorio do Docker CE
+- name: "Adicionando o repositorio do Docker CE"
   get_url:
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
     force: yes
     validate_certs: no
     
-- name: Instalando Docker
+- name: "Instalando Docker"
   dnf: 
     name: docker-ce 
     state: latest
