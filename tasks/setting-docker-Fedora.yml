@@ -23,6 +23,7 @@
     state: latest
   loop:
     - dnf-utils
+    - dnf-plugins-core
     - device-mapper-persistent-data
     - lvm2
     - ansible
@@ -34,6 +35,10 @@
   when: ansible_distribution == "Fedora"
     
 - name: "Adicionando o repositorio do Docker CE"
+#  dnf:
+#    name: docker
+#    enablerepo: testing
+#    state: present
   get_url:
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
