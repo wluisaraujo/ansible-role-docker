@@ -18,6 +18,7 @@ Installation
 
 ```console
 vagrant@localhost:~$ ansible-galaxy install wluisaraujo.docker
+vagrant@localhost:~$ ansible-galaxy install -r wluisaraujo.docker/requirements.txt
 ```
 
 Role Variables
